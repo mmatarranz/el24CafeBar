@@ -1,0 +1,183 @@
+/* ==========================================================================
+   EL 24 CAFÉ BAR - ESTILOS MODERNOS UI/UX & CONVERSIÓN (CRO)
+   Con Banners a Ancho Completo (Full-Width) distribuidos por toda la web
+   ========================================================================== */
+
+/* Suavizado tipográfico y scroll */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #27272a;
+  background-color: #faf9f6;
+}
+
+/* Selección de texto */
+::selection {
+  background-color: #d97706;
+  color: #ffffff;
+}
+
+/* Banners a Ancho Completo (Full-Width Banners con Parallax en escritorio) */
+.fullwidth-banner {
+  position: relative;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+@media (min-width: 768px) {
+  .fullwidth-banner.parallax {
+    background-attachment: fixed;
+  }
+}
+
+/* Overlays limpios y nítidos: máxima claridad fotográfica, sin oscurecimiento excesivo ni difuminado */
+.banner-overlay {
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 14, 0.45) 0%,
+    rgba(10, 10, 14, 0.20) 55%,
+    rgba(10, 10, 14, 0.08) 100%
+  );
+}
+
+@media (max-width: 640px) {
+  .hero-overlay {
+    background: rgba(10, 10, 14, 0.35);
+  }
+}
+
+/* Sombras de texto de alta definición para legibilidad sobre imágenes claras y nítidas */
+.text-shadow-hero {
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 16px rgba(0, 0, 0, 0.9), 0 1px 2px rgba(0, 0, 0, 1);
+}
+
+.text-shadow-sub {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 2px 10px rgba(0, 0, 0, 0.85);
+}
+
+/* Paneles de contraste limpios (sin difuminar la imagen detrás) */
+.glass-panel-dark {
+  background: rgba(18, 18, 22, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.glass-badge {
+  background: rgba(18, 18, 22, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Microinteracciones: Elevación suave en tarjetas */
+.card-hover {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08), 0 8px 16px -4px rgba(0, 0, 0, 0.04);
+}
+
+/* Botón Primario con Destello Luminoso (Alto Impacto CRO) */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.3) 25%,
+    transparent 30%
+  );
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.btn-primary:hover::after {
+  transform: rotate(30deg) translateX(100%);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -5px rgba(217, 119, 6, 0.45);
+}
+
+/* Indicador de estado "Abierto ahora" (Pulsing Dot) */
+.status-pulse {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Acordeón FAQ accesible y fluido */
+details.faq-item > summary {
+  list-style: none;
+}
+details.faq-item > summary::-webkit-details-marker {
+  display: none;
+}
+details.faq-item[open] summary svg {
+  transform: rotate(180deg);
+}
+
+/* Barra flotante inferior para móviles (CRO) */
+.mobile-bottom-bar {
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Foco de accesibilidad WCAG */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fullwidth-banner.parallax {
+    background-attachment: scroll !important;
+  }
+}
